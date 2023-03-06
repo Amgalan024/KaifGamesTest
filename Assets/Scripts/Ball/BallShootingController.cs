@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Ball
 {
-    public class BallShooter : MonoBehaviour
+    public class BallShootingController : MonoBehaviour
     {
         [SerializeField] private int _maxBalls;
         [SerializeField] private float _shootCoolDown;
@@ -44,7 +44,7 @@ namespace Ball
 
             _availableBalls--;
 
-            _ballsCounter.RemoveBalls(1);
+            _ballsCounter.RemoveBallIcons(1);
 
             var destination = GetDestination(touchPosition);
 
@@ -112,7 +112,7 @@ namespace Ball
             }
 
             _ballsCounter.SetTimerActive(false);
-            _ballsCounter.AddBalls(_reloadAmount);
+            _ballsCounter.AddBallIcons(_reloadAmount);
 
             _availableBalls++;
         }

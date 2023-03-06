@@ -9,6 +9,11 @@ namespace UI
 
         private int _count;
 
+        private void Start()
+        {
+            _text.text = "0";
+        }
+
         public void IncreaseCount()
         {
             _count++;

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using UI;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Cube
 {
@@ -8,35 +6,14 @@ namespace Cube
     {
         [SerializeField] private Cube _cubePrefab;
         [SerializeField] private MovementArea.MovementArea _movementArea;
-        [SerializeField] private float _minRespawnTime;
-        [SerializeField] private float _maxRespawnTime;
-        [SerializeField] private CubesCounter _cubesCounter;
 
-        public void SpawnCube()
+        public Cube SpawnCube()
         {
             var cube = Instantiate(_cubePrefab, _movementArea.GetRandomPoint(), Quaternion.identity);
 
-            cube.OnCubeDestroyed += HandleCubeDestruction;
-
             cube.CubeMovement.SetMovementArea(_movementArea);
-        }
 
-        private void HandleCubeDestruction(Cube cube)
-        {
-            _cubesCounter.IncreaseCount();
-
-            StartCoroutine(RespawnCubeCoroutine());
-
-            cube.OnCubeDestroyed -= HandleCubeDestruction;
-        }
-
-        private IEnumerator RespawnCubeCoroutine()
-        {
-            var randomDelay = Random.Range(_minRespawnTime, _maxRespawnTime);
-
-            yield return new WaitForSeconds(randomDelay);
-
-            SpawnCube();
+            return cube;
         }
     }
 }
