@@ -1,5 +1,4 @@
 using System.Collections;
-using DefaultNamespace;
 using UnityEngine;
 
 namespace Cube
@@ -17,7 +16,6 @@ namespace Cube
 
         [SerializeField] private float _movementSpeed;
         [SerializeField] private float _rotationSpeed;
-
 
         private void Start()
         {

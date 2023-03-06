@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using DefaultNamespace.Utils;
 using UI;
 using UnityEngine;
 

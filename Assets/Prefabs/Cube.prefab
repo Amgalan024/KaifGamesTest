@@ -62,8 +62,8 @@ MonoBehaviour:
   _minDashDelay: 3
   _maxDashDelay: 6
   _dashDuration: 1
-  _dashMultiplier: 2
-  _movementSpeed: 5
+  _dashMultiplier: 4
+  _movementSpeed: 3
   _rotationSpeed: 1
 --- !u!54 &5477574991841119628
 Rigidbody:
