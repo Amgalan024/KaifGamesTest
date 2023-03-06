@@ -12,13 +12,11 @@ namespace Cube
         [SerializeField] private CubeSpawner _cubeSpawner;
         [SerializeField] private CubesCounter _cubesCounter;
 
-        private void Start()
+        public void Initialize()
         {
             for (int i = 0; i < _cubesAmount; i++)
             {
-                var cube = _cubeSpawner.SpawnCube();
-
-                cube.OnCubeDestroyed += HandleCubeDestruction;
+                InitializeCube();
             }
         }
 
@@ -37,7 +35,14 @@ namespace Cube
 
             yield return new WaitForSeconds(randomDelay);
 
-            _cubeSpawner.SpawnCube();
+            InitializeCube();
+        }
+
+        private void InitializeCube()
+        {
+            var cube = _cubeSpawner.SpawnCube();
+
+            cube.OnCubeDestroyed += HandleCubeDestruction;
         }
     }
 }

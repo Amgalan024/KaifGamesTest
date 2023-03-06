@@ -19,7 +19,7 @@ namespace Ball
         private int _availableBalls;
         private bool _canShoot;
 
-        private void Start()
+        public void Initialize()
         {
             _tapZone.OnClick += ShootBall;
 
